@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horario</title>
+    <style>
+        body{
+            background-color: rgb(72, 154 , 247);
+            font: normal 15px Arial;
+        }
+        header{
+            color: white;
+            text-align: center;
+        }
+
+        section{
+            background-color: white;
+            border-radius: 10px;
+            padding: 15px;
+            width: 640px;
+            margin: auto;
+            box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.425);
+        }
+
+        img{
+            margin-right: 500px;
+            border-radius: 10px;
+        }
+
+        h1{
+            text-align: center;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        p{
+            text-align: center;
+        }
+
+        div{
+            text-align: center;
+        }
+
+        footer{
+            color: white;
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body onload="iniciar()">
+    <header>
+        <h1>Hora do Dia</h1>
+    </header>
+    <section>
+        <div>
+           <p id="texto" ></p> 
+        </div>
+        <div id="foto" >
+            <img id="imagem" src="imagens/dia.jpg" alt="Dia">
+        </div>
+    </section>
+    <footer>
+        <p id="cabe">© Andrew Corp.</p>
+    </footer>
+<script>
+    function iniciar (){
+    var imagem = window.document.getElementById('imagem');
+    var mensagem = window.document.getElementById('texto');
+    var rodape = window.document.getElementById('cabe');
+    var data = new Date();
+    var hora = data.getHours();
+    mensagem.innerHTML = `Agora são ${hora} horas`;
+    if (hora>=5 && hora<12){
+        imagem.src = 'imagens/amanhecer.jpg';
+        document.body.style.backgroundColor = '#BF8E63';
+    }
+    else if (hora>=12 && hora<16)
+    {
+        imagem.src = 'imagens/dia.jpg';
+        document.body.style.background = '#FFB03B';
+    }
+    else if (hora>=16 && hora<19)
+    {
+        imagem.src = 'imagens/entardecer.jpg';
+        document.body.style.backgroundColor = '#8C3420';
+    }
+    else 
+    {
+        imagem.src = 'imagens/noite.jpg';
+        document.body.style.backgroundColor = '#383F57';
+        document.mensagem.style.color = 'black';
+    }
+    }
+</script>
+</body>
+</html>
